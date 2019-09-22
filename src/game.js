@@ -35,7 +35,7 @@ requestCrash = function(port) {
 // spawn version
 const processing = async function() {
     console.log('processing game server');
-    const client = await spawn('C:/WindowsServer/SaucewichServer.exe -log');
+    const client = await spawn('C:/WindowsServer/SaucewichServer.exe');
     processList[client.pid] = client;
     console.log(client.pid);
 
