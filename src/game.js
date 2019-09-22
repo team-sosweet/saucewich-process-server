@@ -3,8 +3,8 @@ const request = require('request');
 require('dotenv').config();
 const exec = require('child_process').exec;
 const spawn = require('child_process').spawn;
-const redisClient = require('./redisSetting');
-const {getValue, deleteKey, getAll} = require('./redisUtil');
+// const redisClient = require('./redisSetting');
+// const {getValue, deleteKey, getAll} = require('./redisUtil');
 
 const router = express.Router();
 
@@ -51,17 +51,17 @@ router.get('/process', async (req, res, next)=>{
   res.json({success: true});
 });
 
-router.post('/port/:pid', async (req, res, next)=>{
-    const pid = req.params.pid;
-    const port = req.body.port;
-    await redisClient.hset('process', pid, port);
-    //portList[pid] = port;
-    res.json({pid: pid, port: port});
-});
+// router.post('/port/:pid', async (req, res, next)=>{
+//     const pid = req.params.pid;
+//     const port = req.body.port;
+//     await redisClient.hset('process', pid, port);
+//     //portList[pid] = port;
+//     res.json({pid: pid, port: port});
+// });
 
-router.get('/test', async (req, res, next)=>{
-    const process = await getAll('process');
-    res.json(process);
-});
+// router.get('/test', async (req, res, next)=>{
+//     const process = await getAll('process');
+//     res.json(process);
+// });
 
 module.exports = router;
